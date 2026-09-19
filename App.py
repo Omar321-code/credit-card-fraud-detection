@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 
 try: 
-    model = joblib.load("Model/model.joblib")
+    model = joblib.load("models/model.joblib")
 except Exception as e:    
     model = None
 
@@ -46,47 +46,7 @@ UI = gr.Interface(
     examples=[[50.0] + [1.2] * 28 + [200.0]]
 )
 
-# def predict_fraud(time, *v_features, amount):
-#     if model is None:
-#         return "⚠️ Model file not found in models/model.joblib!"
-    
-   
-#     features = [time] + list(v_features) + [amount]
-#     X = np.array([features])
-    
-#     prediction = model.predict(X)[0]
-#     return "🚨 Fraudulent Transaction Detected!" if prediction == 1 else "✅ Legitimate Transaction"
 
-
-# with gr.Blocks(theme=gr.themes.Soft()) as demo:
-    # gr.Markdown("# 💳 Credit Card Fraud Detection System")
-    # gr.Markdown("Enter transaction parameters below to evaluate legitimacy.")
-    
-    # with gr.Row():
-    #     with gr.Column():
-            
-    #         time_input = gr.Number(label="Time (Seconds elapsed)", value=0)
-            
-           
-    #         with gr.Accordion("🔒 Advanced PCA Features (V1 - V28)", open=False):
-    #             v_inputs = []
-    #             for i in range(1, 29):
-    #                 v_inputs.append(gr.Number(label=f"V{i}", value=0.0))
-            
-    #         amount_input = gr.Number(label="Amount ($)", value=100.0)
-    #         submit_btn = gr.Button("Evaluate Transaction", variant="primary")
-            
-    #     with gr.Column():
-    #         output_box = gr.Textbox(label="Evaluation Result")
-
-
-    # all_inputs = [time_input] + v_inputs + [amount_input]
-    
-    # submit_btn.click(
-    #     fn=predict_fraud,
-    #     inputs=all_inputs,
-    #     outputs=output_box
-    # )
 
 if __name__ == "__main__":
 
