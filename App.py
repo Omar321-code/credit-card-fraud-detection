@@ -1,11 +1,21 @@
 import gradio as gr
 import joblib
+from xgboost import XGBClassifier
+from sklearn.metrics import accuracy_score, classification_report
+from sklearn.model_selection import  GridSearchCV
 import pandas as pd
 import numpy as np
 
-try: 
+# try: 
+#     model = joblib.load("models/model.joblib")
+# except Exception as e:    
+#     model = None
+
+try:
     model = joblib.load("models/model.joblib")
-except Exception as e:    
+    print("✅ Model loaded successfully!")
+except Exception as e:
+    print("❌ EXACT LOAD ERROR:", e) 
     model = None
 
 
